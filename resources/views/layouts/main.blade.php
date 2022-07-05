@@ -8,20 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+<div class="container">
     <div class="row">
         <nav>
             <ul>
                 <li><a href="{{route('main.index')}}">main</a></li>
                 <li><a href="{{route('contactsPosts.index')}}">contacts</a></li>
                 <li><a href="{{route('aboutPosts.index')}}">about</a></li>
+
+                @can('view', auth()->user())
+                    <li><a href="{{route('admin.post.index')}}">admin panel</a></li>
+                @endcan
             </ul>
         </nav>
 
     </div>
     <div>
-@yield('content')
+        @yield('content')
     </div>
-    </div>
+</div>
 </body>
 </html>
