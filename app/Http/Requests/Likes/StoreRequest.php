@@ -25,9 +25,11 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'string',
-            'desc' => 'string',
-            'whoLikes_id' => '',
-            'tags' => ''
+            'desc' => '',
+            'whoLikes' => '',
+            'tags' => '',
+            'tags.*.title' => ''
+
         ];
     }
 }

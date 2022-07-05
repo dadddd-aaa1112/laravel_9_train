@@ -32,6 +32,22 @@ Route::group([
 
 });
 
-Route::group(['namespace' => 'Post', 'middleware' => 'jwt.auth'], function() {
-Route::get('/posts', 'IndexController');
+Route::group(['namespace' => 'Post', 'middleware' => 'jwt.auth'], function () {
+    Route::get('/posts', 'IndexController');
+    Route::get('/posts/create', 'CreateController');
+    Route::post('/posts', 'StoreController');
+    Route::get('/posts/{post}', 'ShowController');
+    Route::get('/posts/{post}/edit', 'EditController');
+    Route::patch('/posts/{post}', 'UpdateController');
+    Route::delete('/posts/{post}', 'DestroyController');
+});
+
+Route::group(['namespace' => 'Likes', 'middleware' => 'jwt.auth'], function () {
+    Route::get('/likes', 'IndexController');
+    Route::get('/likes/{like}', 'ShowController');
+    Route::get('/likes/{like}/edit', 'EditController');
+    Route::delete('/likes/{like}', 'DestroyController');
+    Route::post('/likes', 'StoreController');
+    Route::patch('/likes/{like}', 'UpdateController');
+    Route::get('/likes/create', 'CreateController');
 });

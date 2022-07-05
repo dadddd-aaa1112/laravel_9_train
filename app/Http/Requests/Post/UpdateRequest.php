@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'desc' => 'string',
-            'category_id' => '',
+            'category' => '',
             'tags' => ''
         ];
     }

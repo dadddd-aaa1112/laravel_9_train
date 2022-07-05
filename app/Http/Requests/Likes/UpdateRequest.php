@@ -25,8 +25,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'string',
-            'desc' => 'string',
-            'whoLikes_id' => '',
+            'desc' => '',
+            'whoLikes' => '',
             'tags' => ''
         ];
     }

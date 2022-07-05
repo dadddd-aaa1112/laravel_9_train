@@ -24,9 +24,10 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'desc' => 'string',
+            'desc' => '',
             'category_id' => '',
-            'tags' => ''
+            'page' => '',
+            'per_page' => ''
         ];
     }
 }

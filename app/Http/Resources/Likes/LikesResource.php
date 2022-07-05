@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Http\Resources\Likes;
 
-use App\Http\Resources\Category\CategoryResource;
-use App\Http\Resources\Tag\TagResource;
+use App\Http\Resources\TagLikes\tagLikesResource;
+use App\Http\Resources\WhoLikes\WhoLikesResource;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+class LikesResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,11 +19,10 @@ class PostResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'title' => $this->title,
             'desc' => $this->desc,
-            'category' => new CategoryResource($this->category),
-            'tags' => TagResource::collection($this->tags)
-
-
+            'who likes' => new WhoLikesResource($this->whoLikes),
+            'tags' => $this->tag
         ];
     }
 }
